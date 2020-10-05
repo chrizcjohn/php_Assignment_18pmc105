@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <script >
+      function validmyform() {
+
+        var name = document.myform.name.value;
+          var dob = document.myform.dob.value;
+          var num = document.myform.PhoneNo.value;
+          var email = document.myform.email.value;
+          var gender=document.myform.gender.value;
+          var mark=document.myform.Percentage.value;
+          var x=document.myform.email.value;
+          var atposition=x.indexOf("@");
+          var dotposition=x.lastIndexOf(".");
+          if (name==null || name==""){
+            alert("Name can't be blank");
+            document.myform.name.focus();
+            return false;
+          }
+
+          if (dob==null || dob==""){
+            alert("Date of Birth can't be blank");
+              document.myform.dob.focus();
+            return false;
+          }
+
+
+          if (num==null || num==""){
+            alert("Phone can't be blank");
+              document.myform.PhoneNo.focus();
+            return false;
+          }
+
+
+          if (isNaN(num)){
+           alert("Enter Numeric value only");
+           document.myform.PhoneNo.focus();
+            return false;
+          }else if (num.length!=10) {
+          	alert("Enter a valid number");
+            document.myform.PhoneNo.focus();
+          	return false;
+          }
+
+          if (email==null || email==""){
+            alert("Email can't be blank");
+            document.myform.email.focus();
+            return false;
+          }
+          if (atposition<1 || dotposition<atposition+2 || dotposition+2>=x.length){
+            alert("Please enter a valid e-mail address ");
+            document.myform.email.focus();
+            return false;
+            }
+
+
+          if (gender==null || gender==""){
+            alert("Provide a gender");
+
+            return false;
+          }
+
+          if (mark==null || mark==""){
+            alert("Mark can't be blank");
+            document.myform.Percentage.focus();
+            return false;
+          }
+
+
+
+          else{
+          alert("Submited Successfully")
+            return true;
+            }
+      }
+    </script>
+
+  <title>validation</title>
+  </head>
+  <body>
+    <h1 class="form-heading">Entry Form</h1>
+    <form name="myform" onsubmit="return validmyform()" >
+  <table>
+
+          <tr>
+            <td><label>Name:</label></td>
+              <td><input type="text" name="name" /></td>
+          </tr>
+
+
+          <tr>
+            <td><label>Date of birth</label></td>
+            <td><input type="date"   min="1900-01-01" max="2015-09-18" name="dob"></td>
+          </tr>
+
+          <tr>
+            <td><label>Phone No:</label></td>
+            <td><input type="tel"  name="PhoneNo"></td>
+          </tr>
+
+            <tr>
+              <td><label >Email</label></td>
+            <td>  <input type="email" name="email"></td>
+            </tr>
+
+
+          <tr>
+            <td><label>Gender</label></td>
+            <td><input type="radio" name="gender" value="male" > Male<br>
+              <input type="radio" name="gender" value="female" > Female<br>
+              <input type="radio" name="gender" value="other"> Other</td>
+          </tr>
+
+            <tr>
+              <td><label>Mark Percentage</label></td>
+            <td><input type="number" name="Percentage"></td>
+            </tr>
+
+            <td> </td>
+              <td><input type="submit" value="Apply now"></td>
+            </tr>
+  </table>
+    </form>
+
+  </body>
+</html>
